@@ -15,6 +15,15 @@
                     @endif
 
                     {{ __('You are logged in!') }}
+
+
+                    @can('isAdmin')
+                        <h4>Admin</h4>
+                    @endcan
+
+                    @can('isUser')
+                        <h4>User</h4>
+                    @endcan
                 </div>
             </div>
         </div>

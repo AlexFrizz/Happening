@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
             'surname'       => 'Frizziero',
             'email'         => 'alex@happening.com',
             'password'      =>  bcrypt('password'),
+            'is_admin'      => '1',
             'created_at'    =>  date('Y-m-d h:i:s'),
             'updated_at'    =>  date('Y-m-d h:i:s')
         ], [
@@ -25,6 +26,7 @@ class UsersTableSeeder extends Seeder
             'surname'       => 'Piva',
             'email'         => 'giacomo@happening.com',
             'password'      =>  bcrypt('password'),
+            'is_admin'      => '1',
             'created_at'    =>  date('Y-m-d h:i:s'),
             'updated_at'    =>  date('Y-m-d h:i:s')
         ], [
@@ -32,6 +34,7 @@ class UsersTableSeeder extends Seeder
             'surname'       => 'Finotti',
             'email'         => 'greta@happening.com',
             'password'      =>  bcrypt('password'),
+            'is_admin'      => '0',
             'created_at'    =>  date('Y-m-d h:i:s'),
             'updated_at'    =>  date('Y-m-d h:i:s')
         ]]);
