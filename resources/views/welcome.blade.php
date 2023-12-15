@@ -59,7 +59,7 @@
           </a>
         </li>
         <li class="nav-list account">
-          <a href="#account">
+          <a href="{{ route('home') }}">
             <span class="nav-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36"><path d="M4 22C4 17.5817 7.58172 14 12 14C16.4183 14 20 17.5817 20 22H18C18 18.6863 15.3137 16 12 16C8.68629 16 6 18.6863 6 22H4ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11Z" fill="rgba(224,251,252,1)"></path></svg>
             </span>
@@ -76,7 +76,7 @@
           <div class="row ">
             <div class="col-12">
               <div class="title-container px-4">
-                <h1 class="title">WHAT'S <br></be><span class="mt-5 mb-5">HAPPENING</span><br>TODAY IN</h1>
+                <h1 class="title">WHAT'S <br><span class="mt-5 mb-5">HAPPENING</span><br>TODAY IN</h1>
 
                 <div class="box">
                   <form name="search" method="get" action="#">
@@ -92,28 +92,6 @@
               <div class="img-container">
                 <img src="{{ asset('assets/photo-removebg.png') }}" class="bg-img">
               </div>
-
-{{--              <div id="carouselExampleAutoplaying" class="carousel slide px-4 carousel-fade" data-bs-ride="carousel">--}}
-{{--                <div class="carousel-inner">--}}
-{{--                  <div class="carousel-item active c-item">--}}
-{{--                    <img src="{{ asset('assets/friends2.jpg') }}" class="d-block w-100 c-img" alt="friends2">--}}
-{{--                  </div>--}}
-{{--                  <div class="carousel-item c-item">--}}
-{{--                    <img src="{{ asset('assets/friends3.jpg') }}" class="d-block w-100 c-img" alt="friends3">--}}
-{{--                  </div>--}}
-{{--                  <div class="carousel-item c-item">--}}
-{{--                    <img src="{{ asset('assets/party2.jpg') }}" class="d-block w-100 c-img" alt="...">--}}
-{{--                  </div>--}}
-{{--                </div>--}}
-{{--                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">--}}
-{{--                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
-{{--                  <span class="visually-hidden">Previous</span>--}}
-{{--                </button>--}}
-{{--                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">--}}
-{{--                  <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
-{{--                  <span class="visually-hidden">Next</span>--}}
-{{--                </button>--}}
-{{--              </div>--}}
             </div>
           </div>
         </div>
@@ -123,15 +101,15 @@
 
   <section id="event" class="section-padding">
     <div class="panel-container">
-      <div class="row">
+      <div class="row row-panel">
         <div class="col-6">
           <h3 class="tit">Recently Added:</h3>
         </div>
         <div class="col-6 text-right">
-          <a class="btn btn-primary mr-1" href="#CarouselSlide" role="button" data-slide="prev">
+          <a class="btn btn-carousel mr-1" href="#CarouselSlide" role="button" data-slide="prev">
             <i class="fa fa-arrow-left"></i>
           </a>
-          <a class="btn btn-primary" href="#CarouselSlide" role="button" data-slide="next">
+          <a class="btn btn-carousel" href="#CarouselSlide" role="button" data-slide="next">
             <i class="fa fa-arrow-right"></i>
           </a>
         </div>
@@ -140,113 +118,187 @@
 
             <div class="carousel-inner">
               <div class="carousel-item active">
-                <div class="row">
+                <div class="row row-carousel">
                   @foreach($events as $event)
                    <div class="col-md-3 mb-3">
-                      <div class="card">
-                        <img class="img-fluid" alt="100%x280" src="{{ asset('assets/card1.jpg') }}">
+                      <div class="card glass ">
+                        <img class="img-fluid" alt="" src="{{ asset('assets/card1.jpg') }}">
                         <div class="card-body">
                           <h4 class="card-title">{{ $event['title'] }}</h4>
                           <p class="card-text">{{ $event['description'] }}</p>
-                        </div>
-                        <div class="content">
-
+                          <hr>
+                          <div class="info">
+                            <div class="row row-info">
+                              <div class="col-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path d="M12 23.7279L5.63604 17.364C2.12132 13.8492 2.12132 8.15076 5.63604 4.63604C9.15076 1.12132 14.8492 1.12132 18.364 4.63604C21.8787 8.15076 21.8787 13.8492 18.364 17.364L12 23.7279ZM16.9497 15.9497C19.6834 13.2161 19.6834 8.78392 16.9497 6.05025C14.2161 3.31658 9.78392 3.31658 7.05025 6.05025C4.31658 8.78392 4.31658 13.2161 7.05025 15.9497L12 20.8995L16.9497 15.9497ZM12 13C10.8954 13 10 12.1046 10 11C10 9.89543 10.8954 9 12 9C13.1046 9 14 9.89543 14 11C14 12.1046 13.1046 13 12 13Z" fill="rgba(224,251,252,1)"></path></svg>
+                              </div>
+                              <div class="col">
+                                <p class="card-info">{{ $event['city'] }}, {{ $event['address'] }}, {{ $event['location'] }}</p>
+                              </div>
+                            </div>
+                            <div class="row row-info">
+                              <div class="col-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path d="M9 1V3H15V1H17V3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H7V1H9ZM20 11H4V19H20V11ZM11 13V17H6V13H11ZM7 5H4V9H20V5H17V7H15V5H9V7H7V5Z" fill="rgba(224,251,252,1)"></path></svg>                              </div>
+                              <div class="col">
+                                <p class="card-info">{{ $event['date'] }}</p>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="btn-container ">
+                            <div class="row row-icon fixed-bottom mb-2">
+                              <div class="card-btn d-flex justify-content-between ">
+                                <a href="#" class="icon-join card-icon ms-5">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M14 14.252V16.3414C13.3744 16.1203 12.7013 16 12 16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14C12.6906 14 13.3608 14.0875 14 14.252ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11ZM17.7929 19.9142L21.3284 16.3787L22.7426 17.7929L17.7929 22.7426L14.2574 19.2071L15.6716 17.7929L17.7929 19.9142Z" fill="rgba(224,251,252,1)"></path></svg>
+                                </a>
+                                <a href="#" class="icon-comment card-icon">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M5.76282 17H20V5H4V18.3851L5.76282 17ZM6.45455 19L2 22.5V4C2 3.44772 2.44772 3 3 3H21C21.5523 3 22 3.44772 22 4V18C22 18.5523 21.5523 19 21 19H6.45455Z" fill="rgba(224,251,252,1)"></path></svg>
+                                </a>
+                                <a href="#" class="icon-share card-icon me-5">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M13.1202 17.0228L8.92129 14.7324C8.19135 15.5125 7.15261 16 6 16C3.79086 16 2 14.2091 2 12C2 9.79086 3.79086 8 6 8C7.15255 8 8.19125 8.48746 8.92118 9.26746L13.1202 6.97713C13.0417 6.66441 13 6.33707 13 6C13 3.79086 14.7909 2 17 2C19.2091 2 21 3.79086 21 6C21 8.20914 19.2091 10 17 10C15.8474 10 14.8087 9.51251 14.0787 8.73246L9.87977 11.0228C9.9583 11.3355 10 11.6629 10 12C10 12.3371 9.95831 12.6644 9.87981 12.9771L14.0788 15.2675C14.8087 14.4875 15.8474 14 17 14C19.2091 14 21 15.7909 21 18C21 20.2091 19.2091 22 17 22C14.7909 22 13 20.2091 13 18C13 17.6629 13.0417 17.3355 13.1202 17.0228ZM6 14C7.10457 14 8 13.1046 8 12C8 10.8954 7.10457 10 6 10C4.89543 10 4 10.8954 4 12C4 13.1046 4.89543 14 6 14ZM17 8C18.1046 8 19 7.10457 19 6C19 4.89543 18.1046 4 17 4C15.8954 4 15 4.89543 15 6C15 7.10457 15.8954 8 17 8ZM17 20C18.1046 20 19 19.1046 19 18C19 16.8954 18.1046 16 17 16C15.8954 16 15 16.8954 15 18C15 19.1046 15.8954 20 17 20Z" fill="rgba(224,251,252,1)"></path></svg>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </div>
                   @endforeach
 
-                  <div class="col-md-3 mb-3">
-                    <div class="card">
-                      <img class="img-fluid card__image" alt="100%x280" src="{{ asset('assets/card1.jpg') }}">
-                      <div class="card__overlay">
-                        <div class="card__header">
-                          <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>
-                          <div class="card__header-text">
-                            <h3 class="card__title">Jessica Parker</h3>
-                            <span class="card__status">1 hour ago</span>
-                          </div>
-                        </div>
-                        <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
-                      </div>
-                    </div>
-                  </div>
-{{--                  <div class="col-md-3 mb-3">--}}
-{{--                    <div class="card">--}}
-{{--                      <img class="img-fluid" alt="100%x280" src="{{ asset('assets/card2.jpg') }}">--}}
-{{--                      <div class="card-body">--}}
-{{--                        <h4 class="card-title">Special title treatment</h4>--}}
-{{--                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--}}
-{{--                      </div>--}}
-{{--                    </div>--}}
-{{--                  </div>--}}
-{{--                  <div class="col-md-3 mb-3">--}}
-{{--                    <div class="card">--}}
-{{--                      <img class="img-fluid" alt="100%x280" src="{{ asset('assets/card3.jpg') }}">--}}
-{{--                      <div class="card-body">--}}
-{{--                        <h4 class="card-title">Special title treatment</h4>--}}
-{{--                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--}}
-{{--                      </div>--}}
-{{--                    </div>--}}
-{{--                  </div>--}}
-{{--                  <div class="col-md-3 mb-3">--}}
-{{--                    <div class="card">--}}
-{{--                      <img class="img-fluid" alt="100%x280" src="{{ asset('assets/card4.jpg') }}">--}}
-{{--                      <div class="card-body">--}}
-{{--                        <h4 class="card-title">Special title treatment</h4>--}}
-{{--                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--}}
-{{--                      </div>--}}
-{{--                    </div>--}}
-{{--                  </div>--}}
-{{--                </div>--}}
-{{--              </div>--}}
-
-{{--              <div class="carousel-item">--}}
-{{--                <div class="row">--}}
-
-{{--                  <div class="col-md-3 mb-3">--}}
-{{--                    <div class="card">--}}
-{{--                      <img class="img-fluid" alt="100%x280" src="{{ asset('assets/card5.jpg') }}">--}}
-{{--                      <div class="card-body">--}}
-{{--                        <h4 class="card-title">Special title treatment</h4>--}}
-{{--                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--}}
-{{--                      </div>--}}
-{{--                    </div>--}}
-{{--                  </div>--}}
-{{--                  <div class="col-md-3 mb-3">--}}
-{{--                    <div class="card">--}}
-{{--                      <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1532715088550-62f09305f765?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=ebadb044b374504ef8e81bdec4d0e840">--}}
-{{--                      <div class="card-body">--}}
-{{--                        <h4 class="card-title">Special title treatment</h4>--}}
-{{--                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--}}
-{{--                      </div>--}}
-{{--                    </div>--}}
-{{--                  </div>--}}
-{{--                  <div class="col-md-3 mb-3">--}}
-{{--                    <div class="card">--}}
-{{--                      <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=0754ab085804ae8a3b562548e6b4aa2e">--}}
-{{--                      <div class="card-body">--}}
-{{--                        <h4 class="card-title">Special title treatment</h4>--}}
-{{--                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--}}
-{{--                      </div>--}}
-{{--                    </div>--}}
-{{--                  </div>--}}
-{{--                  <div class="col-md-3 mb-3">--}}
-{{--                    <div class="card">--}}
-{{--                      <img class="img-fluid" alt="100%x280" src="https://images.unsplash.com/photo-1506197603052-3cc9c3a201bd?ixlib=rb-0.3.5&amp;q=80&amp;fm=jpg&amp;crop=entropy&amp;cs=tinysrgb&amp;w=1080&amp;fit=max&amp;ixid=eyJhcHBfaWQiOjMyMDc0fQ&amp;s=0754ab085804ae8a3b562548e6b4aa2e">--}}
-{{--                      <div class="card-body">--}}
-{{--                        <h4 class="card-title">Special title treatment</h4>--}}
-{{--                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>--}}
-{{--                      </div>--}}
-{{--                    </div>--}}
-{{--                  </div>--}}
-{{--                </div>--}}
-{{--              </div>--}}
             </div>
           </div>
         </div>
       </div>
+    <div class="row row-panel2">
+      <div class="col-6">
+        <h3 class="tit">Most Popular:</h3>
+      </div>
+      <div class="col-6 text-right">
+        <a class="btn btn-carousel mr-1" href="#CarouselSlide" role="button" data-slide="prev">
+          <i class="fa fa-arrow-left"></i>
+        </a>
+        <a class="btn btn-carousel" href="#CarouselSlide" role="button" data-slide="next">
+          <i class="fa fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="col-12 car">
+        <div id="CarouselSlide" class="carousel slide" data-ride="">
 
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="row row-carousel">
+                @foreach($events as $event)
+                  <div class="col-md-3 mb-3">
+                    <div class="card glass ">
+                      <img class="img-fluid" alt="" src="{{ asset('assets/card1.jpg') }}">
+                      <div class="card-body">
+                        <h4 class="card-title">{{ $event['title'] }}</h4>
+                        <p class="card-text">{{ $event['description'] }}</p>
+                        <hr>
+                        <div class="info">
+                          <div class="row row-info">
+                            <div class="col-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path d="M12 23.7279L5.63604 17.364C2.12132 13.8492 2.12132 8.15076 5.63604 4.63604C9.15076 1.12132 14.8492 1.12132 18.364 4.63604C21.8787 8.15076 21.8787 13.8492 18.364 17.364L12 23.7279ZM16.9497 15.9497C19.6834 13.2161 19.6834 8.78392 16.9497 6.05025C14.2161 3.31658 9.78392 3.31658 7.05025 6.05025C4.31658 8.78392 4.31658 13.2161 7.05025 15.9497L12 20.8995L16.9497 15.9497ZM12 13C10.8954 13 10 12.1046 10 11C10 9.89543 10.8954 9 12 9C13.1046 9 14 9.89543 14 11C14 12.1046 13.1046 13 12 13Z" fill="rgba(224,251,252,1)"></path></svg>
+                            </div>
+                            <div class="col">
+                              <p class="card-info">{{ $event['city'] }}, {{ $event['address'] }}, {{ $event['location'] }}</p>
+                            </div>
+                          </div>
+                          <div class="row row-info">
+                            <div class="col-1">
+                              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path d="M9 1V3H15V1H17V3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H7V1H9ZM20 11H4V19H20V11ZM11 13V17H6V13H11ZM7 5H4V9H20V5H17V7H15V5H9V7H7V5Z" fill="rgba(224,251,252,1)"></path></svg>                              </div>
+                            <div class="col">
+                              <p class="card-info">{{ $event['date'] }}</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="btn-container ">
+                          <div class="row row-icon fixed-bottom mb-2">
+                            <div class="card-btn d-flex justify-content-between ">
+                              <a href="#" class="icon-join card-icon ms-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M14 14.252V16.3414C13.3744 16.1203 12.7013 16 12 16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14C12.6906 14 13.3608 14.0875 14 14.252ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11ZM17.7929 19.9142L21.3284 16.3787L22.7426 17.7929L17.7929 22.7426L14.2574 19.2071L15.6716 17.7929L17.7929 19.9142Z" fill="rgba(224,251,252,1)"></path></svg>
+                              </a>
+                              <a href="#" class="icon-comment card-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M5.76282 17H20V5H4V18.3851L5.76282 17ZM6.45455 19L2 22.5V4C2 3.44772 2.44772 3 3 3H21C21.5523 3 22 3.44772 22 4V18C22 18.5523 21.5523 19 21 19H6.45455Z" fill="rgba(224,251,252,1)"></path></svg>
+                              </a>
+                              <a href="#" class="icon-share card-icon me-5">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M13.1202 17.0228L8.92129 14.7324C8.19135 15.5125 7.15261 16 6 16C3.79086 16 2 14.2091 2 12C2 9.79086 3.79086 8 6 8C7.15255 8 8.19125 8.48746 8.92118 9.26746L13.1202 6.97713C13.0417 6.66441 13 6.33707 13 6C13 3.79086 14.7909 2 17 2C19.2091 2 21 3.79086 21 6C21 8.20914 19.2091 10 17 10C15.8474 10 14.8087 9.51251 14.0787 8.73246L9.87977 11.0228C9.9583 11.3355 10 11.6629 10 12C10 12.3371 9.95831 12.6644 9.87981 12.9771L14.0788 15.2675C14.8087 14.4875 15.8474 14 17 14C19.2091 14 21 15.7909 21 18C21 20.2091 19.2091 22 17 22C14.7909 22 13 20.2091 13 18C13 17.6629 13.0417 17.3355 13.1202 17.0228ZM6 14C7.10457 14 8 13.1046 8 12C8 10.8954 7.10457 10 6 10C4.89543 10 4 10.8954 4 12C4 13.1046 4.89543 14 6 14ZM17 8C18.1046 8 19 7.10457 19 6C19 4.89543 18.1046 4 17 4C15.8954 4 15 4.89543 15 6C15 7.10457 15.8954 8 17 8ZM17 20C18.1046 20 19 19.1046 19 18C19 16.8954 18.1046 16 17 16C15.8954 16 15 16.8954 15 18C15 19.1046 15.8954 20 17 20Z" fill="rgba(224,251,252,1)"></path></svg>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                @endforeach
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="search" class="section-padding">
+    <div class="panel-container">
+      <div class="panel glass">
+        <div class="row row-panel">
+          <div class="col">
+            <div class="form-img">
+              <img src="{{ asset('assets/search1-removebg.png') }}" class="search-img">
+            </div>
+          </div>
+          <div class="col">
+            <div class="row row-title">
+              <div class="search-title">
+                <h3 class="d-flex justify-content-center">Discover what's out there</h3>
+                <p class="search-description d-flex justify-content-center">just enter some information</p>
+              </div>
+            </div>
+            <form action="" method="GET">
+              <div class="row row-form1">
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label">Title</label>
+                  <input type="text" class="form-control glass form-control-lg" id="exampleFormControlInput1" placeholder="what's the title?" name="title">
+                </div>
+              </div>
+              <div class="row row-form2">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">City</label>
+                    <input type="text" class="form-control glass form-control-lg" id="exampleFormControlInput1" placeholder="in which city?" name="city">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Address</label>
+                    <input type="text" class="form-control glass form-control-lg" id="exampleFormControlInput1" placeholder="to which address?" name="address">
+                  </div>
+                </div>
+              </div>
+              <div class="row row-form3">
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Location</label>
+                    <input type="text" class="form-control glass form-control-lg" id="exampleFormControlInput1" placeholder="at which location?" name="location">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="mb-3">
+                    <label for="exampleFormControlInput1" class="form-label">Date</label>
+                    <input type="date" class="form-control glass form-control-lg" id="exampleFormControlInput1" placeholder="on which date?" name="date">
+                  </div>
+                </div>
+              </div>
+              <div class="row row-button">
+                <div class="btn-container d-flex justify-content-center">
+                  <input class="btn-search" type="submit" value="View"></input>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 </div>
