@@ -13,7 +13,7 @@
               <h3>{{ __('Login') }}</h3>
             </div>
             <p class="panel-description d-flex justify-content-center">login or register to continue access pages</p>
-            <div class="card-body">
+            <div class="panel-body">
               <form method="POST" action="{{ route('login') }}">
                 @csrf
                 <div class="row row-email mb-3">
@@ -31,7 +31,7 @@
                   <div class="row row-password mb-3">
                     <label for="password" class="col-md-4 col-form-label text-md-end login-group">{{ __('Password') }}</label>
                     <div class="col-md-6">
-                      <input id="password" type="password" class="form-control glass form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="enter 8 character or more">
+                      <input id="password" type="password" class="form-control glass form-control-lg @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="enter 8 characters or more">
 
                       @error('password')
                         <span class="invalid-feedback" role="alert">
