@@ -23,6 +23,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 Route::get('/gate', [\App\Http\Controllers\AuthorizationController::class, 'index'])->name('gate.index');
 
 Route::get('/', [EventController::class, 'show']);

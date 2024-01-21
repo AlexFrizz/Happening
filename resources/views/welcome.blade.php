@@ -10,6 +10,7 @@
 
     <!-- icon-->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 
     <!-- Styles -->
     <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
@@ -310,7 +311,6 @@
     </div>
   </section>
 
-
   <section id="create" class="section-padding">
     <div class="row row-preview">
       <div class="panel-container1">
@@ -395,29 +395,7 @@
 
             <div class="col-card d-flex justify-content-center align-items-center">
               <div class="card-preview glass" id="event-preview">
-{{--                <img class="img-fluid" alt="" src="{{ asset('assets/card1.jpg') }}">--}}
-{{--                <div class="card-body">--}}
-{{--                  <h4 class="card-title"></h4>--}}
-{{--                  <p class="card-text">{{ $event['description'] }}</p>--}}
-{{--                  <hr>--}}
-{{--                  <div class="info">--}}
-{{--                    <div class="row row-info">--}}
-{{--                      <div class="col-1">--}}
-{{--                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path d="M12 23.7279L5.63604 17.364C2.12132 13.8492 2.12132 8.15076 5.63604 4.63604C9.15076 1.12132 14.8492 1.12132 18.364 4.63604C21.8787 8.15076 21.8787 13.8492 18.364 17.364L12 23.7279ZM16.9497 15.9497C19.6834 13.2161 19.6834 8.78392 16.9497 6.05025C14.2161 3.31658 9.78392 3.31658 7.05025 6.05025C4.31658 8.78392 4.31658 13.2161 7.05025 15.9497L12 20.8995L16.9497 15.9497ZM12 13C10.8954 13 10 12.1046 10 11C10 9.89543 10.8954 9 12 9C13.1046 9 14 9.89543 14 11C14 12.1046 13.1046 13 12 13Z" fill="rgba(224,251,252,1)"></path></svg>--}}
-{{--                      </div>--}}
-{{--                      <div class="col">--}}
-{{--                        <p class="card-info">{{ $event['city'] }}, {{ $event['address'] }}, {{ $event['location'] }}</p>--}}
-{{--                      </div>--}}
-{{--                    </div>--}}
-{{--                    <div class="row row-info">--}}
-{{--                      <div class="col-1">--}}
-{{--                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16"><path d="M9 1V3H15V1H17V3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H3C2.44772 21 2 20.5523 2 20V4C2 3.44772 2.44772 3 3 3H7V1H9ZM20 11H4V19H20V11ZM11 13V17H6V13H11ZM7 5H4V9H20V5H17V7H15V5H9V7H7V5Z" fill="rgba(224,251,252,1)"></path></svg>                              </div>--}}
-{{--                      <div class="col">--}}
-{{--                        <p class="card-info">{{ $event['date'] }}</p>--}}
-{{--                      </div>--}}
-{{--                    </div>--}}
-{{--                  </div>--}}
-                </div>
+              </div>
               </div>
               <div class="card-footer-preview glass">
                 <div class="btn-container">
@@ -441,7 +419,59 @@
         </div>
       </div>
   </section>
+
+  <section id="footer" class="section-padding">
+  <div class="footer-dark glass">
+    <footer>
+      <div class="container">
+        <div class="row row-footer">
+          <div class="col-sm-6 col-md-3 item">
+            <h3>Services</h3>
+            <ul>
+              <li><a href="#">Contact</a></li>
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Privacy</a></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-md-3 item">
+            <h3>About</h3>
+            <ul>
+              <li><a href="#">Company</a></li>
+              <li><a href="#">Team</a></li>
+              <li><a href="#">Careers</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 item text">
+            <h2 class="title-footer text-center mt-5">HAPPENING</h2>
+            <p class="slogan-footer text-center">Your pass to a world of emotions</p>
+          </div>
+        </div>
+        <div class="row row-social">
+          <div class="col item social">
+            <a href="#">
+              <i class="icon ion-social-facebook"></i>
+            </a>
+            <a href="#">
+              <i class="icon ion-social-twitter"></i>
+            </a>
+            <a href="#">
+              <i class="icon ion-social-snapchat"></i>
+            </a>
+            <a href="#">
+              <i class="icon ion-social-instagram"></i>
+            </a>
+          </div>
+          <p class="copyright">Happening © 2023</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+  </section>
+
+
+
 </div>
+
 
 {{--  JavaScript --}}
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
@@ -451,9 +481,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-
-<!-- CKEditor -->
-<script src="https://cdn.ckeditor.com/ckeditor5/36.0.3/classic/ckeditor.js"></script>
 
 <script type="text/javascript" src="{{ URL::asset('assets/js/app.js') }}"></script>
 <script type="text/javascript" src="{{ URL::asset('assets/js/script.js') }}"></script>
