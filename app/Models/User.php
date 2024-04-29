@@ -18,6 +18,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'id',
         'name',
         'surname',
         'email',
@@ -43,4 +44,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function participations()
+    {
+        return $this->hasMany(participation::class);
+    }
+    //dichiaro la relazione molti a molti tra user e event
+    public function events()
+    {
+        return $this->belongsToMany(Event::class, 'participants');
+    }
 }
