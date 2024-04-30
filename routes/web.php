@@ -62,3 +62,8 @@ Route::get('/participated-events', [EventController::class, 'showParticipatedEve
 
 //Route che permette di vedere tutti gli eventi ai quali l'utente può partecipare
 Route::get('/eventi-disponibili',[EventController::class,'showAvailableEvents']);
+
+//Route per mostrare le informazioni relative agli eventi
+Route::get('/info/{id}', [EventController::class, 'info'])->name('info');
+
+Route::get('/event/unsubscribe/{eventId}', '\App\Http\Controllers\ParticipantController@unsubscribeUserFromEvent')->name('unsubscribe');

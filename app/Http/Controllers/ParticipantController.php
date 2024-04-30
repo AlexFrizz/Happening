@@ -26,5 +26,17 @@ class ParticipantController extends Controller
       return redirect()->back();
 
     }
+    //Funzione per disiscirversi dal'evento
+    public function unsubscribeUserFromEvent($eventId)
+{
+    $userId = Auth::id(); // Ottieni l'ID dell'utente attualmente autenticato
+
+    $user = User::findOrFail($userId); // Trova l'utente per l'ID trovato
+    $event = Event::findOrFail($eventId); // Trova l'evento per l'ID specificato
+
+    $user->events()->detach($eventId); // Rimuovi l'iscrizione dell'utente dall'evento
+
+    return redirect()->back()->with('success', 'User unsubscribed from the event successfully.');
+}
 
 }

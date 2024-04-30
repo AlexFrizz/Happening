@@ -127,7 +127,9 @@ public function searchByTitle(Request $request)
 //Funzione che mostra sia tutti gli eventi che i più popolari
 public function most()
 {
-    $events = Event::latest()->get();
+    $events = Event::latest()
+                   ->where('created_at', '>=', now()->subWeek()) // Selezione degli eventi creati meno di una settimana fa
+                   ->get();
     $mostPopular = Event::withCount('users')
                         ->whereHas('users')
                         ->having('users_count', '>', 5)
@@ -151,6 +153,14 @@ public function showAvailableEvents()
 {
     $eventiDisponibili = Event::where('date', '>', now())->get();
     return view('eventsparticipants', compact('eventiDisponibili'));
+}
+
+//Funzione che mostra le informazioni relative all'evento
+public function info($id)
+{
+    $event = Event::findOrFail($id);
+
+    return view('showinfo', ['event' => $event]);
 }
 
 }

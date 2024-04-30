@@ -397,6 +397,14 @@ body, html {
 
 .card-text {
   opacity: 80%;
+  color: white;
+}
+
+.text{
+        color: white;
+        font-size: 32px;
+        font-family: var(--f-main);
+        box-shadow: 0 0 5px var(--color-primary),
 }
 
 .info {

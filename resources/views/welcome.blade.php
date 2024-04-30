@@ -123,7 +123,7 @@
                   @foreach($events as $event)
                    <div class="col-md-3 mb-3">
                       <div class="card glass ">
-                        <img class="img-fluid" alt="" src="{{ asset('assets/card1.jpg') }}">
+                        <img class="img-fluid" alt="" src="{{ asset('assets/Immagini/' . $event->image) }}">
                         <div class="card-body">
                           <h4 class="card-title">{{ $event['title'] }}</h4>
                           <p class="card-text">{{ $event['description'] }}</p>
@@ -160,7 +160,7 @@
 
 
 
-                             <a href="#" class="icon-comment card-icon">
+                             <a href="{{ route('info', $event->id) }}" class="icon-comment card-icon">
                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M5.76282 17H20V5H4V18.3851L5.76282 17ZM6.45455 19L2 22.5V4C2 3.44772 2.44772 3 3 3H21C21.5523 3 22 3.44772 22 4V18C22 18.5523 21.5523 19 21 19H6.45455Z" fill="rgba(224,251,252,1)"></path></svg>
                              </a>
                              <a href="#condividi" class="icon-share card-icon me-5">
@@ -200,7 +200,7 @@
 
                   <div class="col-md-3 mb-3">
                     <div class="card glass ">
-                      <img class="img-fluid" alt="" src="{{ asset('assets/card1.jpg') }}">
+                      <img class="img-fluid" alt="" src="{{ asset('assets/Immagini/' . $event->image) }}">
                       <div class="card-body">
                         <h4 class="card-title">{{ $event['title'] }}</h4>
                         <p class="card-text">{{ $event['description'] }}</p>
@@ -231,7 +231,7 @@
                             <a href="{{ route('participate', ['event' => $event->id]) }}"  class="icon-join card-icon ms-5">
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M14 14.252V16.3414C13.3744 16.1203 12.7013 16 12 16C8.68629 16 6 18.6863 6 22H4C4 17.5817 7.58172 14 12 14C12.6906 14 13.3608 14.0875 14 14.252ZM12 13C8.685 13 6 10.315 6 7C6 3.685 8.685 1 12 1C15.315 1 18 3.685 18 7C18 10.315 15.315 13 12 13ZM12 11C14.21 11 16 9.21 16 7C16 4.79 14.21 3 12 3C9.79 3 8 4.79 8 7C8 9.21 9.79 11 12 11ZM17.7929 19.9142L21.3284 16.3787L22.7426 17.7929L17.7929 22.7426L14.2574 19.2071L15.6716 17.7929L17.7929 19.9142Z" fill="rgba(224,251,252,1)"></path></svg>
                             </a>
-                            <a href="#" class="icon-comment card-icon">
+                            <a href="{{ route('info', $event->id) }}" class="icon-comment card-icon">
                               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="32" height="32"><path d="M5.76282 17H20V5H4V18.3851L5.76282 17ZM6.45455 19L2 22.5V4C2 3.44772 2.44772 3 3 3H21C21.5523 3 22 3.44772 22 4V18C22 18.5523 21.5523 19 21 19H6.45455Z" fill="rgba(224,251,252,1)"></path></svg>
                             </a>
                             <a href="#" class="icon-share card-icon me-5">
@@ -464,16 +464,16 @@
         </div>
         <div class="row row-social">
           <div class="col item social">
-            <a href="#">
+            <a href="https://www.facebook.com/?locale=it_IT">
               <i class="icon ion-social-facebook"></i>
             </a>
-            <a href="#">
+            <a href="https://twitter.com/?lang=it">
               <i class="icon ion-social-twitter"></i>
             </a>
-            <a href="#">
+            <a href="https://www.snapchat.com/it-IT">
               <i class="icon ion-social-snapchat"></i>
             </a>
-            <a href="#">
+            <a href="https://www.instagram.com/">
               <i class="icon ion-social-instagram"></i>
             </a>
           </div>
