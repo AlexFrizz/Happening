@@ -108,15 +108,15 @@ $events = $query->get();
 return view('results', compact('events'));
 }
 
-// Funzione per ricercare un evento solo tramite il titolo
+// Funzione per ricercare un evento solo dal titolo
 public function searchByTitle(Request $request)
 {
-    $title = $request->input('title');
+    $city = $request->input('city');
 
     $events = Event::query();
 
-    if ($title) {
-        $events->where('title', 'like', '%' . $title . '%');
+    if ($city) {
+        $events->where('city', 'like', '%' . $city . '%');
     }
 
     $events = $events->get();
@@ -159,9 +159,10 @@ public function showAvailableEvents()
 public function info($id)
 {
     $event = Event::findOrFail($id);
-
-    return view('showinfo', ['event' => $event]);
+    $participantsCount = $event->users()->count();
+    return view('showinfo', compact('event', 'participantsCount'));
 }
+
 
 }
 

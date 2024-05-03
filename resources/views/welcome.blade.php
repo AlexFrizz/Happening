@@ -23,6 +23,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Anek+Latin:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <title>Happening</title>
+
   </head>
 <body>
 <div class="video-background">
@@ -81,7 +82,7 @@
 
                 <div class="box">
                   <form name="search" method="get" action="/search1">
-                    <input type="text" class="input" name="title">
+                    <input type="text" class="input" name="city">
                     <i class="fas fa-search"></i>
                   </form>
                 </div>

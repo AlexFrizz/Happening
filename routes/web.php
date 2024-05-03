@@ -66,4 +66,6 @@ Route::get('/eventi-disponibili',[EventController::class,'showAvailableEvents'])
 //Route per mostrare le informazioni relative agli eventi
 Route::get('/info/{id}', [EventController::class, 'info'])->name('info');
 
+//Route per disiscriversi da un evento
 Route::get('/event/unsubscribe/{eventId}', '\App\Http\Controllers\ParticipantController@unsubscribeUserFromEvent')->name('unsubscribe');
+
